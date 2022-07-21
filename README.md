@@ -12,7 +12,10 @@
 9.In Header, create styles in module.css
 10.In Main, create styles in module.css
 11.In Footer, create styles in module.css
-12.Create a data products
+12.Create a products data
 13.Create a card element and set a props for render {image, name}
 14.Create a card content and set a props for render {slug, name, brand, price}
-15.Create a button
+15.Create a button in card for cart link
+16.Create a router for product details
+16.Develop a layout for product details router
+17.Seting search props for query in elements

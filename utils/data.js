@@ -1,8 +1,8 @@
 const data = {
   products: [
     {
-      name: 'Moletom',
-      slug: 'Jaqueta',
+      name: 'Moletom1',
+      slug: 'Moletom1',
       category: 'Jaqueta',
       image: '/images/jaquet1.jpg',
       price: 500,
@@ -13,8 +13,8 @@ const data = {
       description: 'Jaqueta top de linha',
     },
     {
-      name: 'Jaqueta',
-      slug: 'Jaqueta',
+      name: 'Jaqueta1',
+      slug: 'Jaqueta1',
       category: 'Jaqueta',
       image: '/images/jaquet2.png',
       price: 500,
@@ -25,8 +25,8 @@ const data = {
       description: 'Jaqueta top de linha',
     },
     {
-      name: 'Jaqueta',
-      slug: 'Jaqueta',
+      name: 'Jaqueta2',
+      slug: 'Jaqueta2',
       category: 'Jaqueta',
       image: '/images/jaquet3.png',
       price: 500,
@@ -37,8 +37,8 @@ const data = {
       description: 'Jaqueta top de linha',
     },
     {
-      name: 'Jaqueta',
-      slug: 'Jaqueta',
+      name: 'Jaqueta3',
+      slug: 'Jaqueta3',
       category: 'Jaqueta',
       image: '/images/jaquet4.png',
       price: 500,
@@ -49,8 +49,8 @@ const data = {
       description: 'Jaqueta top de linha',
     },
     {
-      name: 'Calça',
-      slug: 'Calça',
+      name: 'Calça1',
+      slug: 'Calça1',
       category: 'Calça',
       image: '/images/pants1.jpg',
       price: 500,
@@ -61,8 +61,8 @@ const data = {
       description: 'Calça top de linha',
     },
     {
-      name: 'Calça',
-      slug: 'Calça',
+      name: 'Calça2',
+      slug: 'Calça2',
       category: 'Calça',
       image: '/images/pants2.jpg',
       price: 500,
@@ -73,8 +73,8 @@ const data = {
       description: 'Calça top de linha',
     },
     {
-      name: 'Camisa',
-      slug: 'Camisa',
+      name: 'Camisa1',
+      slug: 'Camisa1',
       category: 'Camisa',
       image: '/images/t-shirt-male.jpg',
       price: 500,
@@ -85,8 +85,8 @@ const data = {
       description: 'Camisa top de linha',
     },
     {
-      name: 'Camisa',
-      slug: 'Camisa',
+      name: 'Camisa2',
+      slug: 'Camisa2',
       category: 'Camisa',
       image: '/images/t-shirt-female.jpg',
       price: 500,
