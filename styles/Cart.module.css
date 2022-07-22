@@ -1,0 +1,117 @@
+.title {
+  margin-bottom: 4rem;
+  font-size: 24px;
+}
+
+.delete {
+  background: #fff;
+  border: none;
+}
+
+.cartcontainer {
+  display: grid;
+}
+
+.tablecontainer {
+  overflow-y: auto;
+}
+
+.table {
+  min-width: 100%;
+}
+.tableborder {
+  border-bottom: 1px solid #000;
+}
+
+.thstart {
+  padding: 0 5px;
+  text-align: left;
+}
+
+.thmedium {
+  padding: 5px;
+  text-align: right;
+}
+
+.thend {
+  padding: 5px;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+}
+
+.tbstart {
+  padding: 1rem;
+  text-align: right;
+}
+.tbmedium {
+  text-align: right;
+  padding: 1rem;
+}
+
+.tbend {
+  text-align: center;
+  padding: 1rem;
+}
+
+.icon {
+  width: 3rem;
+  height: 3rem;
+  transition: 0.5s;
+}
+
+.icon:hover {
+  color: red;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.25);
+  padding: 2rem;
+  box-shadow: 5px 1px 5px 5px rgba(0, 0, 0, 0.25);
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 24px;
+}
+
+.list {
+  list-style: none;
+}
+
+.total {
+  padding-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.btn {
+  background-color: #000;
+  padding: 5px 15px;
+  border-radius: 20px;
+  width: 100%;
+  color: #fff;
+  font-size: 1rem;
+  margin-top: 20px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #fff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  width: 100%;
+  color: #000;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .cartcontainer {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .tablecontainer {
+    grid-column: span 3 / span 3;
+  }
+}
