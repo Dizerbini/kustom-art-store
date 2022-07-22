@@ -1,12 +1,16 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Store } from '../utils/Store';
 import styles from '../styles/Layout.module.css';
 
 export default function Layout({ title, children }) {
   const { state } = useContext(Store);
   const { cart } = state;
+  const [cartItemsCount, setCartItemsCount] = useState(0);
+  useEffect(() => {
+    setCartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
+  }, [cart.cartItems]);
   return (
     <>
       <Head>
@@ -24,10 +28,8 @@ export default function Layout({ title, children }) {
               <Link href="/cart">
                 <a className={styles.navlink}>
                   Carrinho
-                  {cart.cartItems.length > 0 && (
-                    <span className={styles.cart}>
-                      {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                    </span>
+                  {cartItemsCount > 0 && (
+                    <span className={styles.cart}>{cartItemsCount}</span>
                   )}
                 </a>
               </Link>

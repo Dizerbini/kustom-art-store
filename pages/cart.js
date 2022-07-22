@@ -6,8 +6,9 @@ import { Store } from '../utils/Store';
 import Image from 'next/image';
 import { TiDelete } from 'react-icons/ti';
 import styles from '../styles/Cart.module.css';
+import dynamic from 'next/dynamic';
 
-export default function CartScreen() {
+function CartScreen() {
   const { state, dispatch } = useContext(Store);
   const router = useRouter();
   const {
@@ -16,6 +17,11 @@ export default function CartScreen() {
 
   const removeItemHandler = (item) => {
     dispatch({ type: 'CART_REMOVE_ITEM', payload: item });
+  };
+
+  const updateCartHandler = (item, qty) => {
+    const quantity = Number(qty);
+    dispatch({ type: 'CART_ADD_ITEM', payload: { ...item, quantity } });
   };
 
   return (
@@ -56,6 +62,21 @@ export default function CartScreen() {
                         </a>
                       </Link>
                     </td>
+                    <td className={styles.tbstart}>
+                      <select
+                        className={styles.select}
+                        value={item.quantity}
+                        onChange={(e) =>
+                          updateCartHandler(item, e.target.value)
+                        }
+                      >
+                        {[...Array(item.countInStock).keys()].map((i) => (
+                          <option key={i + 1} value={i + 1}>
+                            {i + 1}
+                          </option>
+                        ))}
+                      </select>
+                    </td>
                     <td className={styles.tbstart}>{item.quantity}</td>
                     <td className={styles.tbmedium}>${item.price}</td>
                     <td className={styles.tbend}>
@@ -81,7 +102,7 @@ export default function CartScreen() {
               </li>
               <li>
                 <button
-                  onClick={() => router.push('/shipping')}
+                  onClick={() => router.push('login?redirect=/shipping')}
                   className={styles.btn}
                 >
                   Finalizar compra
@@ -94,3 +115,5 @@ export default function CartScreen() {
     </Layout>
   );
 }
+
+export default dynamic(() => Promise.resolve(CartScreen), { ssr: false });
