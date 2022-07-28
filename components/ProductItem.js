@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import styles from '../styles/Card.module.css';
 
-export default function ProductItem({ product }) {
+export default function ProductItem({ product, addToCartHandler }) {
   return (
     <div className={styles.card}>
       <Link href={`/product/${product.slug}`}>
@@ -22,7 +22,13 @@ export default function ProductItem({ product }) {
         </Link>
         <p>{product.brand}</p>
         <p>R${product.price}</p>
-        <button className={styles.btnpri}>Adicionar ao carrinho</button>
+        <button
+          className={styles.btn}
+          type="button"
+          onClick={() => addToCartHandler(product)}
+        >
+          Adicionar ao carrinho
+        </button>
       </div>
     </div>
   );
