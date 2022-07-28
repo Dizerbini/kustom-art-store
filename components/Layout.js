@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import React, { useContext, useEffect, useState } from 'react';
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
+import Cookies from 'js-cookie';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Store } from '../utils/Store';
@@ -12,12 +13,17 @@ import DropDownLink from './DropDownLink';
 export default function Layout({ title, children }) {
   const { status, data: session } = useSession();
 
-  const { state } = useContext(Store);
+  const { state, dispatch } = useContext(Store);
   const { cart } = state;
   const [cartItemsCount, setCartItemsCount] = useState(0);
   useEffect(() => {
     setCartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
   }, [cart.cartItems]);
+  const logoutClickHandler = () => {
+    Cookies.remove('cart');
+    dispatch({ type: 'CART_RESET' });
+    signOut({ callbackUrl: '/login' });
+  };
   return (
     <>
       <Head>
@@ -46,12 +52,17 @@ export default function Layout({ title, children }) {
                 'Loading'
               ) : session?.user ? (
                 <Menu as="div">
-                  <MenuButton bg="#FFF" fontSize="1rem">
+                  <MenuButton bg="#FFF" fontSize="1rem" border="none" p="6">
                     {session.user.name}
                   </MenuButton>
                   <MenuList>
-                    <MenuItem bg="#FFF" fontSize="1rem">
+                    <MenuItem bg="#FFF" fontSize="1rem" border="none" p="6">
                       <DropDownLink href="/profile">Conta</DropDownLink>
+                    </MenuItem>
+                    <MenuItem bg="#FFF" fontSize="1rem" border="none" p="6">
+                      <a href="#" onClick={logoutClickHandler}>
+                        Sair
+                      </a>
                     </MenuItem>
                   </MenuList>
                 </Menu>
