@@ -1,0 +1,12 @@
+.checkoutcontainer {
+  margin-bottom: 2px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box {
+  flex: 1 1 0%;
+  text-align: center;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #ffd700;
+}

@@ -14,12 +14,6 @@
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
 }
 
-.menuheader {
-  position: relative;
-  display: inline-block;
-  background: red;
-}
-
 .navlink {
   padding: 0 20px;
 }
