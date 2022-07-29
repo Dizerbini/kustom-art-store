@@ -27,7 +27,7 @@ export default function Home({ products }) {
 
   return (
     <>
-      <Layout title="Home Page">
+      <Layout title="Loja">
         <div className={styles.collection}>
           {products.map((product) => (
             <ProductItem

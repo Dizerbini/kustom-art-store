@@ -7,6 +7,7 @@ import styles from '../styles/Login.module.css';
 import { getError } from '../utils/error';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 
 export default function LoginScreen() {
   const { data: session } = useSession();
@@ -23,10 +24,17 @@ export default function LoginScreen() {
   const {
     handleSubmit,
     register,
+    getValues,
     formState: { errors },
   } = useForm();
-  const submitHandler = async ({ email, password }) => {
+  const submitHandler = async ({ name, email, password }) => {
     try {
+      await axios.post('/api/auth/signup', {
+        name,
+        email,
+        password,
+      });
+
       const result = await signIn('credentials', {
         redirect: false,
         email,
@@ -41,9 +49,27 @@ export default function LoginScreen() {
   };
   return (
     <>
-      <Layout title="Login">
+      <Layout title="Crie sua conta">
         <form className={styles.form} onSubmit={handleSubmit(submitHandler)}>
           <h1 className={styles.title}>Login</h1>
+
+          <div className={styles.inputbox}>
+            <label htmlFor="email">Name</label>
+            <input
+              type="text"
+              {...register('name', {
+                required: 'Insira seu nome completo',
+                minLength: 8,
+              })}
+              className={styles.input}
+              id="name"
+              autoFocus
+            ></input>
+            {errors.name && (
+              <div className={styles.errormsg}>{errors.name.message}</div>
+            )}
+          </div>
+
           <div className={styles.inputbox}>
             <label htmlFor="email">Email</label>
             <input
@@ -63,12 +89,13 @@ export default function LoginScreen() {
               <div className={styles.errormsg}>{errors.email.message}</div>
             )}
           </div>
+
           <div className={styles.inputbox}>
-            <label htmlFor="password">Senha</label>
+            <label htmlFor="password">Insira uma Senha</label>
             <input
               type="password"
               {...register('password', {
-                required: 'Insira sua senha cadastrada',
+                required: 'Insira uma senha válida',
                 minLength: {
                   value: 6,
                   message: 'Senha deve conter no minimo 6 caracteres',
@@ -82,14 +109,42 @@ export default function LoginScreen() {
               <div className={styles.errormsg}>{errors.password.message}</div>
             )}
           </div>
+
           <div className={styles.inputbox}>
-            <button className={styles.btn}>Login</button>
+            <label htmlFor="confirmPassword">Confirmar senha</label>
+            <input
+              type="password"
+              {...register('confirmPassword', {
+                required: 'Confirme sua senha',
+                validate: (value) => value === getValues('password'),
+                minLength: {
+                  value: 6,
+                  message: 'Senha deve conter no minimo 6 caracteres',
+                },
+              })}
+              className={styles.input}
+              id="confirmPassword"
+              autoFocus
+            ></input>
+            {errors.confirmPassword && (
+              <div className={styles.errormsg}>
+                {errors.confirmPassword.message}
+              </div>
+            )}
+            {errors.confirmPassword &&
+              errors.confirmPassword.type === 'validate' && (
+                <div className={styles.errormsg}>As senhas não conferem</div>
+              )}
+          </div>
+
+          <div className={styles.inputbox}>
+            <button className={styles.btn}>Criar minha conta</button>
           </div>
           <div className={styles.inputbox}>
             Ainda não tem uma conta? &nbsp;
             <Link href={`/register?redirect=${redirect || '/'}`}>
               Crie sua conta
-            </Link>{' '}
+            </Link>
           </div>
         </form>
       </Layout>
