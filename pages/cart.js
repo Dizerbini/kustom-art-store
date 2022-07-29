@@ -48,7 +48,7 @@ function CartScreen() {
                   <th className={styles.thstart}>Item</th>
                   <th className={styles.thmedium}>Quantidade</th>
                   <th className={styles.thmedium}>Preço</th>
-                  <th className={styles.thend}>Item</th>
+                  <th className={styles.thend}>Total</th>
                 </tr>
               </thead>
 

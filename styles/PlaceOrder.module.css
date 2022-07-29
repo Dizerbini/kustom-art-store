@@ -1,0 +1,112 @@
+.h1 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.orderbox {
+  display: grid;
+}
+
+.ordercontent {
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 5px 1px 5px 5px rgba(0, 0, 0, 0.25);
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.btn {
+  background-color: #fff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  width: 100%;
+  color: #000;
+  font-size: 1rem;
+  margin-top: 20px;
+  transition: 0.5s;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #000;
+}
+
+.btn:hover {
+  background-color: #ffd700;
+  padding: 5px 15px;
+  border-radius: 20px;
+  width: 100%;
+  color: #000;
+  margin-top: 20px;
+}
+
+.h2 {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.table {
+  min-width: 100%;
+}
+
+.thstart {
+  padding: 0 1rem;
+  text-align: right;
+}
+
+.thmedium {
+  padding: 1rem;
+  text-align: right;
+}
+
+.thend {
+  padding: 1rem;
+}
+
+.tableborder {
+  border-bottom: 1px solid #000;
+}
+
+.a {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.tbstart {
+  padding: 1rem;
+  text-align: right;
+}
+.tbmedium {
+  text-align: right;
+  padding: 1rem;
+}
+
+.tbend {
+  text-align: center;
+  padding: 1rem;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ul {
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .orderbox {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .ordercontent {
+    grid-column: span 3 / span 3;
+  }
+}
