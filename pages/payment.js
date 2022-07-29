@@ -44,7 +44,7 @@ export default function PaymentScreen() {
       <CheckoutWizard activeStep={2} />
       <form className={styles.form} onSubmit={submitHandler}>
         <h1 className={styles.h1}>Escolha como quer pagar</h1>
-        {['Mercado Pago', 'Pagseguro'].map((payment) => (
+        {['Paypal', 'Pagseguro'].map((payment) => (
           <div key={payment} className={styles.formbox}>
             <input
               name="paymentMethod"
