@@ -65,6 +65,17 @@ export default function Layout({ title, children }) {
                     >
                       <DropDownLink href="/profile">Conta</DropDownLink>
                     </MenuItem>
+                    <MenuItem
+                      width="100px"
+                      bg="#FFF"
+                      fontSize="1rem"
+                      border="none"
+                      p="6"
+                    >
+                      <DropDownLink href="/orders-history">
+                        Histórico
+                      </DropDownLink>
+                    </MenuItem>
                     <MenuItem bg="#FFF" fontSize="1rem" border="none" p="6">
                       <a href="#" onClick={logoutClickHandler}>
                         Sair

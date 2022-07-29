@@ -1,0 +1,57 @@
+.historycontent {
+  overflow-x: auto;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 5px 1px 5px 5px rgba(0, 0, 0, 0.25);
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+  padding: 1rem;
+  margin: 1rem;
+  min-width: 100%;
+}
+
+.alert {
+  background-color: rgba(255, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.table {
+}
+
+.thead {
+  border-bottom: 1px solid #1c1c1c;
+}
+
+.thstart {
+  padding: 0 5px;
+  text-align: left;
+}
+
+.thmedium {
+  padding: 5px;
+  text-align: right;
+}
+
+.thend {
+  padding: 5px;
+}
+
+.tbstart {
+  padding: 1rem;
+  text-align: right;
+}
+.tbmedium {
+  text-align: right;
+  padding: 1rem;
+}
+
+.tbend {
+  text-align: center;
+  padding: 1rem;
+}
