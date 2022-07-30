@@ -65,6 +65,7 @@ export default function Layout({ title, children }) {
                     >
                       <DropDownLink href="/profile">Conta</DropDownLink>
                     </MenuItem>
+
                     <MenuItem
                       width="100px"
                       bg="#FFF"
@@ -76,6 +77,19 @@ export default function Layout({ title, children }) {
                         Histórico
                       </DropDownLink>
                     </MenuItem>
+                    {session.user.isAdmin && (
+                      <MenuItem
+                        width="100px"
+                        bg="#FFF"
+                        fontSize="1rem"
+                        border="none"
+                        p="6"
+                      >
+                        <DropDownLink href="/admin/dashboard">
+                          Admin Dashboard
+                        </DropDownLink>
+                      </MenuItem>
+                    )}
                     <MenuItem bg="#FFF" fontSize="1rem" border="none" p="6">
                       <a href="#" onClick={logoutClickHandler}>
                         Sair

@@ -124,7 +124,7 @@ function OrderScheen() {
 
   return (
     <Layout title={`Order ${orderId}`}>
-      <h1 className={styles.h1}>{`Order ${orderId}}`}</h1>
+      <h1 className={styles.h1}>{`Pedido ${orderId}`}</h1>
       {loading ? (
         <div>Carregando...</div>
       ) : error ? (

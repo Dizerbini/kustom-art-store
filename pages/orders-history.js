@@ -39,7 +39,7 @@ function OrdersHistoryScreen() {
   }, []);
   return (
     <Layout title="Histórico de pedidos">
-      <h1>Histórico de pedidos</h1>
+      <h1 className={styles.h1}>Histórico de pedidos</h1>
       {loading ? (
         <div>Carregando...</div>
       ) : error ? (
